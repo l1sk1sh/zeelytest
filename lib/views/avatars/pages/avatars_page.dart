@@ -42,39 +42,7 @@ class AvatarPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: AppDimensions.dimen16),
-        Obx(() {
-          final hasAnyFilter = controller.genderFilter.isNotEmpty ||
-              controller.ageFilter.isNotEmpty ||
-              controller.poseFilter.isNotEmpty;
-
-          return Row(
-            children: [
-              if (hasAnyFilter) ...[
-                AppClearFiltersButton(
-                  onTap: controller.clearFilters,
-                ),
-                const SizedBox(width: AppDimensions.dimen8),
-              ],
-              AppFilterChip(
-                label: LocaleKeys.avatar_filter_gender.tr(),
-                count: controller.genderFilter.length,
-                onTap: () => _openGenderSheet(context),
-              ),
-              const SizedBox(width: AppDimensions.dimen8),
-              AppFilterChip(
-                label: LocaleKeys.avatar_filter_age.tr(),
-                count: controller.ageFilter.length,
-                onTap: () => _openAgeSheet(context),
-              ),
-              const SizedBox(width: AppDimensions.dimen8),
-              AppFilterChip(
-                label: LocaleKeys.avatar_filter_pose.tr(),
-                count: controller.poseFilter.length,
-                onTap: () => _openPoseSheet(context),
-              ),
-            ],
-          );
-        }),
+        _buildFilters(context),
         const SizedBox(height: AppDimensions.dimen16),
         Expanded(
           child: controller.obx(
@@ -101,6 +69,45 @@ class AvatarPage extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget _buildFilters(final BuildContext context) {
+    return Obx(() {
+      final hasAnyFilter = controller.genderFilter.isNotEmpty ||
+          controller.ageFilter.isNotEmpty ||
+          controller.poseFilter.isNotEmpty;
+
+      return SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            if (hasAnyFilter) ...[
+              AppClearFiltersButton(
+                onTap: controller.clearFilters,
+              ),
+              const SizedBox(width: AppDimensions.dimen8),
+            ],
+            AppFilterChip(
+              label: LocaleKeys.avatar_filter_gender.tr(),
+              count: controller.genderFilter.length,
+              onTap: () => _openGenderSheet(context),
+            ),
+            const SizedBox(width: AppDimensions.dimen8),
+            AppFilterChip(
+              label: LocaleKeys.avatar_filter_age.tr(),
+              count: controller.ageFilter.length,
+              onTap: () => _openAgeSheet(context),
+            ),
+            const SizedBox(width: AppDimensions.dimen8),
+            AppFilterChip(
+              label: LocaleKeys.avatar_filter_pose.tr(),
+              count: controller.poseFilter.length,
+              onTap: () => _openPoseSheet(context),
+            ),
+          ],
+        ),
+      );
+    });
   }
 
   Widget _buildLoadingBody() {
