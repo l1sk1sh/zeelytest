@@ -1,0 +1,49 @@
+name: zeelytestapp
+description: "A new Flutter project."
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+environment:
+  sdk: ">=3.4.4 <4.0.0"
+  flutter: "^3.29.2"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State
+  get: ^4.7.3
+
+  # Localization
+  easy_localization: ^3.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+# The following section is specific to Flutter packages.
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/translations/
+    - assets/fonts/
+
+  fonts:
+    - family: Italian Plate No2 Expanded
+      fonts:
+        - asset: assets/fonts/Italian-Plate-No2-Expanded.ttf
+          weight: 400
+        - asset: assets/fonts/Italian-Plate-No2-Expanded-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Italian-Plate-No2-Expanded-Demibold.ttf
+          weight: 600
+
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

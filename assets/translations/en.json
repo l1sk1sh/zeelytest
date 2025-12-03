@@ -1,0 +1,17 @@
+{
+  "avatar": {
+    "ttl": "All Avatars",
+    "filter_gender": "Gender",
+    "filter_male": "Male",
+    "filter_female": "Female",
+    "filter_age": "Age",
+    "filter_young": "Young adults",
+    "filter_adult": "Adults",
+    "filter_middle": "Middle-aged adults",
+    "filter_older": "Older Adults",
+    "filter_pose": "Pose",
+    "filter_not_found": "Nothing was found using these filters",
+    "filter_apply": "Save",
+    "filter_clear": "Clear filters"
+  }
+}

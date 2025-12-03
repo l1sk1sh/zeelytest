@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Generate Localizations",
+      "type": "shell",
+      "command": "flutter",
+      "args": [
+        "pub",
+        "run",
+        "easy_localization:generate",
+        "-f",
+        "keys",
+        "-o",
+        "locale_keys.g.dart",
+        "-S",
+        "assets/translations"
+      ],
+      "problemMatcher": []
+    },
+  ]
+}
